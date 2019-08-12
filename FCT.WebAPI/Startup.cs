@@ -25,7 +25,7 @@ namespace FCT.WebAPI {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
             services.AddDbContext<DataContext> (x => x.UseInMemoryDatabase (databaseName: "Item"));
-            services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_1).AddXmlDataContractSerializerFormatters ();
+            services.AddMvc ().AddXmlSerializerFormatters().SetCompatibilityVersion (CompatibilityVersion.Version_2_1);
             services.AddCors ();
 
             services.AddSwaggerGen (c => {
